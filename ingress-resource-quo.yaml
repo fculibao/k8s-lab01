@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource-quo
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: nginx.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-deploy-main
+            port: 
+              number: 80
+  - host: k8s.nginx.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-nfs
+            port:
+              number: 80
