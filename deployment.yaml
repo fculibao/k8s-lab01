@@ -17,7 +17,7 @@ spec:
       serviceAccountName: nfs-client-provisioner
       containers:
         - name: nfs-client-provisioner
-          image: quay.io/external_storage/nfs-client-provisioner:latest
+          image: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner:v4.0.2
           volumeMounts:
             - name: nfs-client-root
               mountPath: /persistentvolumes
@@ -27,7 +27,7 @@ spec:
             - name: NFS_SERVER
               value: 192.168.1.76
             - name: NFS_PATH
-              value: /srv/nfs/kubedata
+              value: /mnt/ssd-disk/kubedata
       volumes:
         - name: nfs-client-root
           nfs:
