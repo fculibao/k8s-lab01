@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  # any PV name
+  name: nfs-pv
+spec:
+  capacity:
+    # storage size
+    storage: 10Gi
+  accessModes:
+    # Access Modes:
+    # - ReadWriteMany (RW from multi nodes)
+    # - ReadWriteOnce (RW from a node)
+    # - ReadOnlyMany (R from multi nodes)
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy:
+    # retain even if pods terminate
+    Retain
+  nfs:
+    # NFS server's definition
+    path: /mnt/ssd-disk/nfs-nginx
+    server: 192.168.1.76
+    readOnly: false
