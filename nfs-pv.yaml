@@ -4,6 +4,7 @@ metadata:
   # any PV name
   name: nfs-pv
 spec:
+  storageClassName: manual
   capacity:
     # storage size
     storage: 10Gi
