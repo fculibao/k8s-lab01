@@ -4,6 +4,7 @@ metadata:
   # any PVC name
   name: nfs-pvc
 spec:
+  storageClassName: manual
   accessModes:
   - ReadWriteMany
   resources:
