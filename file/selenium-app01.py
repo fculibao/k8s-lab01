@@ -1,7 +1,8 @@
-
+import time
 from selenium import webdriver
-
-PATH = "/home/ferdie/selenium-project/chromedriver*"
-driver = webdriver.Chrome(PATH)
-
-driver.get("http://192.168.1.229:8080/vproapp/login") 
+from selenium.webdriver.common.keys import Keys
+browser = webdriver.Chrome(executable_path="./home/ferdie/selenium-project/chromedriver")
+browser.get("http://192.168.1.229:8080/vproapp/login")
+print('Title: %s' % browser.title)
+time.sleep(10)
+browser.quit()
